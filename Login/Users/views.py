@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.mail import EmailMessage, send_mail
-from demoproject1 import settings
+from Login import settings
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
@@ -56,8 +56,7 @@ def signup(request):
         myuser.is_active = False
         myuser.save()
         messages.success(request,
-                         "Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account.")
-
+                         "Your Account has been created succesfully")
         # Welcome Email
         subject = "Welcome to GFG- Django Login!!"
         message = "Hello " + myuser.first_name + "!! \n" + "Welcome to GFG!! \nThank you for visiting our website\n. We have also sent you a confirmation email, please confirm your email address. \n\nThanking You\nAnubhav Madhav"
